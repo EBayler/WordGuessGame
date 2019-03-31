@@ -1,0 +1,44 @@
+.container {
+    font: 500px;
+    color: aqua;
+    text-align: center;
+    margin: 0 auto;
+    height: 0;
+}
+/* body {
+    background-image: url(images/books.jpg);
+    /* background-color: #eee; */
+    /* padding-top: 20px;
+    font-family: Courier New, Courier, monospace;
+    color: white;
+    background-size: cover;
+} */ 
+body {
+  background-image: url(images/books.jpg);
+  font-family: Courier New, Courier, monospace;
+  color: #fff;
+  height: 100%;
+  text-align: center;
+  font-size: 12px;
+}
+
+h1, h2 {
+    font-family: Courier New, Courier, monospace;
+  font-weight: 500;
+  margin: 5px 0;
+}
+
+h1 {
+  font-size: 75px;
+   text-transform: uppercase;
+}
+
+h2 {
+  font-size: 90px;
+}
+
+p {
+  font-size: 25px;
+}
+
+

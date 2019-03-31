@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Hangman / Word Guess Game</title>
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous">
+    <link rel="stylesheet"
+          href="assets/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Hangman:</h1>
+                <h2>Book Lovers Edition</h2>
+
+                <p>Try and guess the TITLE of these amazing books!</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div id="game">Press any key to begin.</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div id="blanks"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div id="remainingGuesses"> Guesses Left: </div>
+            </div>
+            <div class="col-md-4">
+                <div id="correctAnswersTotal">Wins:</div>
+            </div>
+            <div class="col-md-4">
+                <div id="totalWrongGuesses">Incorrect:</div>
+            </div>
+        </div>
+    </div>
+    <script src="assets/javascript/game.js"></script>
+
+</body>
+
+</html>
+
+<!-- //randomize words being quessed
+var randomWord = words[Math.floor(Math.random() * words.length)];
+var chosenWord = words[randomWord]
+var rightWord = [];
+var wrongWord = [];
+var answerArray = [];
+
+for (var i = 0; i < chosenWord.length;
+  i++)
+  {
+  answerArray[i]="_ "
+  ;
+  }
+  console.log(word,
+  answerArray); //user
+  sees
+  the
+  lines
+  for
+  each
+  of
+  the
+  letters
+  document.getElementById("blanks").innerHTML=answerArray.join(" ");
+
+        //get users guess
+        document.addEventListener("
+  keypress",
+  (event)=> {
+    var keyword = String.fromCharCode(event.keyCode);
+    console.log("keyword", keyword);
+
+    if (chosenWord.indexOf(keyword) > -1) {
+    console.log(true);
+
+    rightWord.push(keyword);
+    console.log("rightWord", rightWord);
+
+    blanks[chosenWord.indexOf(keyword)] = keyword;
+
+    if (blanks.join("") === word) {
+    alert("You Win");
+    }
+
+    wrongWord.push(keyword);
+    console.log("wrongWord", wrongWord);
+
+    blanks[chosenWord.indexOf(keyword)] = keyword;
+
+    // if ( )
+    // }
+    }
+
+
+
+    }); -->
