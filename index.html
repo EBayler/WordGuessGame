@@ -26,85 +26,37 @@
         </div>
         <div class="row">
             <div class="col-md-12">
-                <div id="game">Press any key to begin.</div>
+                <p id="game">Press any key to begin.</p>
             </div>
         </div>
         <div class="row">
             <div class="col-md-12">
-                <div id="blanks"></div>
+                <p id="blanks"></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <p id="userLetters"></p>
             </div>
         </div>
         <div class="row">
             <div class="col-md-4">
-                <div id="remainingGuesses"> Guesses Left: </div>
+                <p id="remainingGuesses"> Guesses Left: </p>
+                <p id="computerChoice"></p>
             </div>
             <div class="col-md-4">
-                <div id="correctAnswersTotal">Wins:</div>
+                <p id="correctAnswersTotal">Wins:</p>
             </div>
             <div class="col-md-4">
-                <div id="totalWrongGuesses">Incorrect:</div>
+                <p id="totalWrongGuesses">Incorrect:</dp>
             </div>
         </div>
     </div>
-    <script src="assets/javascript/game.js"></script>
+    <script src="assets/javascript/game.js">
+       
+    </script>
+
 
 </body>
 
 </html>
-
-<!-- //randomize words being quessed
-var randomWord = words[Math.floor(Math.random() * words.length)];
-var chosenWord = words[randomWord]
-var rightWord = [];
-var wrongWord = [];
-var answerArray = [];
-
-for (var i = 0; i < chosenWord.length;
-  i++)
-  {
-  answerArray[i]="_ "
-  ;
-  }
-  console.log(word,
-  answerArray); //user
-  sees
-  the
-  lines
-  for
-  each
-  of
-  the
-  letters
-  document.getElementById("blanks").innerHTML=answerArray.join(" ");
-
-        //get users guess
-        document.addEventListener("
-  keypress",
-  (event)=> {
-    var keyword = String.fromCharCode(event.keyCode);
-    console.log("keyword", keyword);
-
-    if (chosenWord.indexOf(keyword) > -1) {
-    console.log(true);
-
-    rightWord.push(keyword);
-    console.log("rightWord", rightWord);
-
-    blanks[chosenWord.indexOf(keyword)] = keyword;
-
-    if (blanks.join("") === word) {
-    alert("You Win");
-    }
-
-    wrongWord.push(keyword);
-    console.log("wrongWord", wrongWord);
-
-    blanks[chosenWord.indexOf(keyword)] = keyword;
-
-    // if ( )
-    // }
-    }
-
-
-
-    }); -->

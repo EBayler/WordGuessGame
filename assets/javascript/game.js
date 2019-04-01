@@ -15,6 +15,9 @@ $(document).ready(function () {
         "sabriel"
     ]
 
+
+
+
     function game() {
 
         // var won = 0;
@@ -33,39 +36,65 @@ $(document).ready(function () {
 
 
         //randomize words being quessed
-        var word = words[Math.floor(Math.random() * words.length)];
+        var computerGuess = words[Math.floor(Math.random() * words.length)];
+                    console.log("this is our word ", computerGuess);
+
         var answerArray = [];
-        for (var i = 0; i < word.length; i++) {
+
+        for (var i = 0; i < computerGuess.length; i++) {
             answerArray[i] = "_ ";
         }
-        console.log(word, answerArray);
+        console.log("computerGuess", answerArray);
+
+        var remainingLetters = computerGuess.length;
 
         //user sees the lines for each of the letters
         document.getElementById("blanks").innerHTML = answerArray.join(" ");
 
 
         //get users guess
-        document.addEventListener("keypress", (event) => {
-            var keyword = String.fromCharCode(event.keyCode);
-            console.log("keyword", keyword);
-            if (word.indexOf(keyword) > -1) {
-                console.log(true);
+          document.onkeyup = function (event) {
+                  // Determines which key was pressed.
+              var userGuess = event.key;
+              console.log("userGuess", event.key);
 
-                rightWord.push(keyword);
-                console.log("rightWord", rightWord);
-                blanks[word.indexOf(keyword)] = keyword;
+              //userGuess needs to populate in the answer if it is correct and replace dashes 
 
-                if (blanks.join("") === word) {
-                    alert("You Win");
-                } else {
-                    wrongWord.push(keyword);
-                }
-                console.log("wrongWord", wrongWord);
+              //need answer to mark a space when the title answer has more than one word in it
 
-                blanks[word.indexOf(keyword)] = keyword;
+              // || lists letter used that are not in the computerGuess (in Incorrect?) && takes away i-- from number of guesses left 
 
-            }
-        });
+              //need to mark when a letter has already been selected or rather is removed from possible answers so it doesn't count against their guessing 
+              //and also removes all possible dash occurrences of that letter
+
+              //display full word at the end so they can see the title...either because they guessed it correctly or it shows the right answer if they used all of their guesses
+
+              //move to next random word after they have lost or won w/o reloading the page
+
+
+              
+              
+              
+              
+            // if (word.indexOf(keyword) > -1) {
+            //     console.log(true);
+
+            //     rightWord.push(keyword);
+            //     console.log("rightWord", rightWord);
+            //     blanks[word.indexOf(keyword)] = keyword;
+            //     docBlanks[0].innerHTML = blanks.join(" ");
+
+            //     if (blanks.join("") === word) {
+            //         alert("You Win");
+            //     } else {
+            //         wrongWord.push(keyword);
+            //     }
+            //     console.log("wrongWord", wrongWord);
+
+            //     blanks[word.indexOf(keyword)] = keyword;
+
+            // }
+        }
         // debugger;
 
 
@@ -103,3 +132,57 @@ $(document).ready(function () {
 
 
 });
+
+// //randomize words being quessed
+// var randomWord = words[Math.floor(Math.random() * words.length)];
+// var chosenWord = words[randomWord]
+// var rightWord = [];
+// var wrongWord = [];
+// var answerArray = [];
+
+// for (var i = 0; i < chosenWord.length; i++) {
+//     answerArray[i] = "_ ";
+// }
+// console.log(word,
+//     answerArray); //user
+// sees
+// the
+// lines
+// for
+// each
+//     of
+//     the
+// letters
+// document.getElementById("blanks").innerHTML = answerArray.join(" ");
+
+// //get users guess
+// document.addEventListener("
+//     keypress ",
+//     (event) => {
+//         var keyword = String.fromCharCode(event.keyCode);
+//         console.log("keyword", keyword);
+
+//         if (chosenWord.indexOf(keyword) > -1) {
+//             console.log(true);
+
+//             rightWord.push(keyword);
+//             console.log("rightWord", rightWord);
+
+//             blanks[chosenWord.indexOf(keyword)] = keyword;
+
+//             if (blanks.join("") === word) {
+//                 alert("You Win");
+//             }
+
+//             wrongWord.push(keyword);
+//             console.log("wrongWord", wrongWord);
+
+//             blanks[chosenWord.indexOf(keyword)] = keyword;
+
+//             // if ( )
+//             // }
+//         }
+
+
+
+//     });
