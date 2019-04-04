@@ -2,14 +2,14 @@ $(document).ready(function () {
 
 
     var words = [
-        "themartian",
-        "thehumans",
+        "the martian",
+        "the humans",
         "hatchet",
         "watchmen",
         "maus",
         "sunstone",
-        "fightclub",
-        "everyday",
+        "fight club",
+        "every day",
         "saga",
         "sabriel"
     ]
@@ -19,17 +19,20 @@ $(document).ready(function () {
     function game() {
 
         var GamesWon = 0;
-       // var lettersGuessedIncorrectly = 0;
+        // var lettersGuessedIncorrectly = 0;
         var maxErrors = 15;
-        var rightLetters = [];
+        var lettersOfWord = [];
         var wrongLetters = [];
         var blanks = [];
-        
+
 
 
         //randomize words being guessed
         var computerGuess = words[Math.floor(Math.random() * words.length)];
         console.log("this is our word ", computerGuess);
+
+        lettersOfWord = computerGuess.split("");
+        blanks = lettersOfWord.length;
 
         //convert a string to array
 
@@ -43,7 +46,7 @@ $(document).ready(function () {
         var remainingLetters = computerGuess.length;
 
         //user sees the lines for each of the letters
-        document.getElementById("blanks").innerHTML = answerArray.join(" ");
+        
 
 
 
@@ -52,23 +55,24 @@ $(document).ready(function () {
             for (var i = 0; i < computerGuessArray.length; i++) {
                 if (userGuess === computerGuessArray[i]) {
                     answerArray[i] = userGuess;
+                    document.getElementById("blanks").innerHTML = answerArray.join(" ");
                 }
-              
-            }
-              if (computerGuess.indexOf(userGuess) === -1) {
-                  maxErrors--;
-                  console.log('maxErrors', maxErrors);
-                  
 
             }
-            //will only record one letter...
-            $("#wrongGuesses").html("Incorrect:" + event.key);
+            if (computerGuess.indexOf(userGuess) === -1) {
+                maxErrors--;
+                console.log('maxErrors', maxErrors);
+                wrongLetters.push(userGuess);
+                $("#wrongGuesses").html("Incorrect: " + wrongLetters.join(""));
+             
+            }            
 
             //Is working!!
-            $("#remainingGuesses").html("Guesses Left:" + maxErrors);
+            $("#remainingGuesses").html("Guesses Left: " + maxErrors);
         }
+        
 
-       // function 
+        // function 
         //get users guess
         document.onkeyup = function (event) {
             console.log(event)
@@ -78,39 +82,38 @@ $(document).ready(function () {
             console.log("userGuessEventKey", event.key);
 
             matchGuessToAnswer(userGuess);
-
-           // does not work: document.getElementById('wrongGuess').innerText = event.key;
-            
-            
-            //userGuess needs to populate in the answer if it is correct and replace dashes 
-
-            //need answer to mark a space when the title answer has more than one word in it
-
-            // || lists letter used that are not in the computerGuess (in Incorrect?) && takes away i-- from number of guesses left 
-
-            //need to mark when a letter has already been selected or rather is removed from possible answers so it doesn't count against their guessing 
-            //and also removes all possible dash occurrences of that letter
-
-            //display full word at the end so they can see the title...either because they guessed it correctly or it shows the right answer if they used all of their guesses
-
-            //move to next random word after they have lost or won w/o reloading the page
-
-
         }
 
+
+        //userGuess needs to populate in the answer if it is correct and replace dashes 
+
+        //need answer to mark a space when the title answer has more than one word in it
+
+        // || lists letter used that are not in the computerGuess (in Incorrect?) && takes away i-- from number of guesses left 
+
+        //need to mark when a letter has already been selected or rather is removed from possible answers so it doesn't count against their guessing 
+        //and also removes all possible dash occurrences of that letter
+
+        //display full word at the end so they can see the title...either because they guessed it correctly or it shows the right answer if they used all of their guesses
+
+        //move to next random word after they have lost or won w/o reloading the page
     }
 
 
 
     game();
 
-    // var wins = document.getElementById("correctAnswersTotal");
-    // var incorrect = document.getElementById("totalWrongGuesses");
-    // var guessesLeft = document.getElementById("remainingGuesses");
 
-    // var word = words[randNum];
+  
 });
 
+  // var wins = document.getElementById("correctAnswersTotal");
+  // var incorrect = document.getElementById("totalWrongGuesses");
+  // var guessesLeft = document.getElementById("remainingGuesses");
+
+  // var word = words[randNum];
+
+        // does not work: document.getElementById('wrongGuess').innerText = event.key;
 
 // $(document).on('keyup', function () {
 //     console.log(currentWordIndex);
