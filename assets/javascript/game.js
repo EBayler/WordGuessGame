@@ -19,11 +19,11 @@ $(document).ready(function () {
     function game() {
 
         var GamesWon = 0;
-        // var lettersGuessedIncorrectly = 0;
         var maxErrors = 15;
         var lettersOfWord = [];
         var wrongLetters = [];
         var blanks = [];
+
 
 
 
@@ -59,7 +59,7 @@ $(document).ready(function () {
                 }
 
             }
-            if (computerGuess.indexOf(userGuess) === -1) {
+            if (computerGuess.indexOf(userGuess) === -1 && wrongLetters.indexOf(userGuess) === -1) {
                 maxErrors--;
                 console.log('maxErrors', maxErrors);
                 wrongLetters.push(userGuess);
@@ -69,6 +69,7 @@ $(document).ready(function () {
 
             //Is working!!
             $("#remainingGuesses").html("Guesses Left: " + maxErrors);
+            console.log(remainingLetters, 'hi!!!!!')
         }
         
 
